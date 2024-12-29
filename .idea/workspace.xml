@@ -4,11 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25f0b1b3-96d5-4d95-9b2d-e351eaa04bae" name="Changes" comment="" />
+    <list default="true" id="25f0b1b3-96d5-4d95-9b2d-e351eaa04bae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/constants/BookStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/constants/CheckoutStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/constants/PaymentStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/constants/ReservationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/constants/SubjectCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/BookCheckout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/BookItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/BookReservation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Fine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/FineTransaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Library.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/entity/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/repository/LibraryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lms/service/LibraryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lms/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -17,7 +49,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2qtQFM963Sy43w1mywJYHOwUkh2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,6 +60,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "onboarding.tips.debug.path": "F:/Learning/2024/OOAD/LibraryManagementSystem/src/main/java/org/example/Main.java"
   }
 }]]></component>
@@ -44,7 +79,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/lms/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
