@@ -37,4 +37,13 @@ public class BookItem {
     public boolean isAvailable() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "BookItem{" +
+                "id=" + id +
+                ", bookStatus=" + bookStatus +
+                ", book=" + book +
+                '}';
+    }
 }

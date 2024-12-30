@@ -72,4 +72,14 @@ public class Book {
     public int getAvailableItems() {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", authors=" + authors +
+                ", subjectCategory=" + subjectCategory +
+                ", publicationDate=" + publicationDate +
+                '}';
+    }
 }

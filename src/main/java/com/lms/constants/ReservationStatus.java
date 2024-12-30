@@ -1,5 +1,5 @@
 package com.lms.constants;
 
 public enum ReservationStatus {
-    WAITING, CANCELLED, PENDING
+    WAITING, CANCELLED, COMPLETED
 }

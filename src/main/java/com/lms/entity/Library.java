@@ -6,12 +6,14 @@ import java.util.List;
 public class Library {
     private static int ID_GENERATOR = 0;
     private int id;
+    private String name;
     private Address address;
     private List<Book> books;
     private List<Account> users;
 
-    public Library(Address address) {
+    public Library(String name, Address address) {
         this.id = ++ID_GENERATOR;
+        this.name = name;
         this.address = address;
         this.books = new ArrayList<>();
         this.users = new ArrayList<>();

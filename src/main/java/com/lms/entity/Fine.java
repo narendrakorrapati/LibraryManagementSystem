@@ -1,33 +1,34 @@
 package com.lms.entity;
 
+import com.lms.service.strategy.finecalculation.FineCalculationStrategy;
+
 public class Fine {
+    private FineCalculationStrategy fineCalculationStrategy;
     private static int ID_GENERATOR = 0;
     private int id;
-    private double finePerDay;
     private BookCheckout bookCheckout;
 
-    public Fine(double finePerDay, BookCheckout bookCheckout) {
+    public Fine(BookCheckout bookCheckout, FineCalculationStrategy fineCalculationStrategy) {
         this.id = ++ID_GENERATOR;
-        this.finePerDay = finePerDay;
         this.bookCheckout = bookCheckout;
+        this.fineCalculationStrategy = fineCalculationStrategy;
     }
 
     public int getId() {
         return id;
     }
 
+    public FineCalculationStrategy getFineCalculationStrategy() {
+        return fineCalculationStrategy;
+    }
+
+    public void setFineCalculationStrategy(FineCalculationStrategy fineCalculationStrategy) {
+        this.fineCalculationStrategy = fineCalculationStrategy;
+    }
+
     public double calculateFine() {
-        return 0.0;
+        return fineCalculationStrategy.calculateFee(bookCheckout.getOverdueBy());
     }
-
-    public double getFinePerDay() {
-        return finePerDay;
-    }
-
-    public void setFinePerDay(double finePerDay) {
-        this.finePerDay = finePerDay;
-    }
-
     public BookCheckout getBookCheckout() {
         return bookCheckout;
     }

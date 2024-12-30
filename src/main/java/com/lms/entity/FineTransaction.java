@@ -2,14 +2,16 @@ package com.lms.entity;
 
 import com.lms.constants.PaymentStatus;
 
+import java.util.UUID;
+
 public class FineTransaction {
     private static int ID_GENERATOR = 0;
     private int id;
     private Fine fine;
     private PaymentStatus paymentStatus;
-    private String paymentId;
+    private UUID paymentId;
 
-    public FineTransaction(Fine fine, PaymentStatus paymentStatus, String paymentId) {
+    public FineTransaction(Fine fine, PaymentStatus paymentStatus, UUID paymentId) {
         this.id = ++ID_GENERATOR;
         this.fine = fine;
         this.paymentStatus = paymentStatus;
@@ -36,11 +38,7 @@ public class FineTransaction {
         this.paymentStatus = paymentStatus;
     }
 
-    public String getPaymentId() {
+    public UUID getPaymentId() {
         return paymentId;
-    }
-
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
     }
 }

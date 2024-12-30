@@ -1,9 +1,7 @@
 package com.lms.entity;
 
-import com.lms.constants.SubjectCategory;
 import com.lms.service.LibraryService;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public abstract class Account {
@@ -61,19 +59,15 @@ public abstract class Account {
         this.libraryService = libraryService;
     }
 
-    public List<Book> searchBookByTitle(String title) {
-        return null;
+    public List<Book> search(String searchType, Object criteria) {
+        return this.libraryService.search(searchType, criteria);
     }
 
-    public List<Book> searchBookByAuthor(String Author) {
-        return null;
-    }
-
-    public List<Book> searchBookBySubjectCategory(SubjectCategory subjectCategory) {
-        return null;
-    }
-
-    public List<Book> searchBookByPublicationDate(LocalDate publicationDate) {
-        return null;
+    @Override
+    public String toString() {
+        return "Account{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
