@@ -1,6 +1,7 @@
 package com.lms.entity;
 
 import com.lms.service.LibraryService;
+import com.lms.service.SearchService;
 
 import java.util.List;
 
@@ -10,13 +11,15 @@ public abstract class Account {
     private Address address;
     private String email;
     private LibraryService libraryService;
+    private SearchService searchService;
 
-    public Account(String username, String password, Address address, String email, LibraryService libraryService) {
+    public Account(String username, String password, Address address, String email, LibraryService libraryService, SearchService searchService) {
         this.username = username;
         this.password = password;
         this.address = address;
         this.email = email;
         this.libraryService = libraryService;
+        this.searchService = searchService;
     }
 
     public String getUsername() {
@@ -60,7 +63,7 @@ public abstract class Account {
     }
 
     public List<Book> search(String searchType, Object criteria) {
-        return this.libraryService.search(searchType, criteria);
+        return this.searchService.search(searchType, criteria);
     }
 
     @Override

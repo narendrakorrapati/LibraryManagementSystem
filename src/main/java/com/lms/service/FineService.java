@@ -2,7 +2,7 @@ package com.lms.service;
 
 import com.lms.entity.BookCheckout;
 import com.lms.entity.Fine;
-import com.lms.entity.FineTransaction;
+import com.lms.entity.FinePaymentTransaction;
 import com.lms.service.strategy.finecalculation.RegularFineCalculationStrategy;
 
 public class FineService {
@@ -12,9 +12,11 @@ public class FineService {
         this.paymentService = paymentService;
     }
 
-    public FineTransaction processFine(BookCheckout bookCheckout) {
+    public FinePaymentTransaction processFine(BookCheckout bookCheckout) {
         Fine fine = new Fine (bookCheckout, new RegularFineCalculationStrategy(10));
         //Check if member is premium or regular, set the strategy accordingly
-        return paymentService.collectFine(fine);
+        FinePaymentTransaction finePaymentTransaction = paymentService.processPayment(fine.calculateFine(), bookCheckout.getCheckedOutBy());
+        finePaymentTransaction.setFine(fine);
+        return finePaymentTransaction;
     }
 }

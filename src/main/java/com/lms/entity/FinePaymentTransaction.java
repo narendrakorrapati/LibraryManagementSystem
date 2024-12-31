@@ -4,16 +4,15 @@ import com.lms.constants.PaymentStatus;
 
 import java.util.UUID;
 
-public class FineTransaction {
+public class FinePaymentTransaction {
     private static int ID_GENERATOR = 0;
     private int id;
     private Fine fine;
     private PaymentStatus paymentStatus;
     private UUID paymentId;
 
-    public FineTransaction(Fine fine, PaymentStatus paymentStatus, UUID paymentId) {
+    public FinePaymentTransaction(PaymentStatus paymentStatus, UUID paymentId) {
         this.id = ++ID_GENERATOR;
-        this.fine = fine;
         this.paymentStatus = paymentStatus;
         this.paymentId = paymentId;
     }

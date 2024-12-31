@@ -7,6 +7,7 @@ import com.lms.repository.LibraryRepository;
 import com.lms.service.FineService;
 import com.lms.service.LibraryService;
 import com.lms.service.PaymentService;
+import com.lms.service.SearchService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,9 +22,10 @@ public class LibrarySystemSimulator {
         LibraryRepository libraryRepository = new LibraryRepository(library);
         PaymentService paymentService = new PaymentService();
         FineService fineService = new FineService(paymentService);
+        SearchService searchService = new SearchService(libraryRepository);
         LibraryService libraryService = new LibraryService(libraryRepository, fineService);
         List<Book> books = getBooks();
-        List<Account> users = getUsers(libraryService);
+        List<Account> users = getUsers(libraryService, searchService);
         library.setBooks(books);
         library.setUsers(users);
 
@@ -34,30 +36,30 @@ public class LibrarySystemSimulator {
         BookReservation bookReservation = member.reserveBook(searchByTitle.get(0).getBookItems().get(0));
         System.out.println(bookReservation);
     }
-    private static List<Account> getUsers(LibraryService libraryService) {
+    private static List<Account> getUsers(LibraryService libraryService, SearchService searchService) {
 
         List<Account> users = new ArrayList<>();
-        users.addAll(generateAdmins(libraryService));
-        users.addAll(generateMembers(libraryService));
+        users.addAll(generateAdmins(libraryService, searchService));
+        users.addAll(generateMembers(libraryService, searchService));
         return users;
     }
 
-    public static List<Account> generateAdmins(LibraryService libraryService) {
+    public static List<Account> generateAdmins(LibraryService libraryService, SearchService searchService) {
         Address adminAddress1 = new Address("12345", "CityA", "StateA");
         Address adminAddress2 = new Address("456789", "CityB", "StateB");
 
-        Account admin1 = new Admin("admin1", "password1", adminAddress1, "admin1@example.com", libraryService);
-        Account admin2 = new Admin("admin2", "password2", adminAddress2, "admin2@example.com", libraryService);
+        Account admin1 = new Admin("admin1", "password1", adminAddress1, "admin1@example.com", libraryService, searchService);
+        Account admin2 = new Admin("admin2", "password2", adminAddress2, "admin2@example.com", libraryService, searchService);
 
         return List.of(admin1, admin2);
     }
 
-    public static List<Account> generateMembers(LibraryService libraryService) {
+    public static List<Account> generateMembers(LibraryService libraryService, SearchService searchService) {
         Address memberAddress1 = new Address("12345", "CityA", "StateA");
         Address adminAddress2 = new Address("456789", "CityB", "StateB");
 
-        Account member1 = new Member("member1", "password1", memberAddress1, "member1@example.com", libraryService);
-        Account member2 = new Member("member2", "password2", adminAddress2, "member2@example.com", libraryService);
+        Account member1 = new Member("member1", "password1", memberAddress1, "member1@example.com", libraryService, searchService);
+        Account member2 = new Member("member2", "password2", adminAddress2, "member2@example.com", libraryService, searchService);
 
         return List.of(member1, member2);
     }

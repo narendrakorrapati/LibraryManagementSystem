@@ -2,19 +2,16 @@ package com.lms.service;
 
 import com.lms.constants.PaymentStatus;
 import com.lms.entity.Account;
-import com.lms.entity.Fine;
-import com.lms.entity.FineTransaction;
+import com.lms.entity.FinePaymentTransaction;
 
 import java.util.UUID;
 
 public class PaymentService {
 
-    public FineTransaction collectFine(Fine fine) {
-        double amount = fine.calculateFine();
-        Account account = fine.getBookCheckout().getCheckedOutBy();
+    public FinePaymentTransaction processPayment(double amount, Account account) {
         //Process payment
         System.out.println("Collecting Amount:" + amount + "From member:" + account.getUsername());
-        FineTransaction fineTransaction = new FineTransaction(fine, PaymentStatus.SUCCESS, UUID.randomUUID());
-        return fineTransaction;
+        FinePaymentTransaction finePaymentTransaction = new FinePaymentTransaction(PaymentStatus.SUCCESS, UUID.randomUUID());
+        return finePaymentTransaction;
     }
 }

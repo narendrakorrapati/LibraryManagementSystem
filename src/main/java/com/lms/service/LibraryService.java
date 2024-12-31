@@ -42,14 +42,14 @@ public class LibraryService {
         return null;
     }
 
-    public Optional<FineTransaction> returnBook(Account account, BookItem bookItem) {
+    public Optional<FinePaymentTransaction> returnBook(Account account, BookItem bookItem) {
         List<BookCheckout> bookCheckouts = libraryRepository.getCheckoutMap().get(account);
 
         BookCheckout bookCheckout = bookCheckouts.stream().filter(bc -> bc.getBookItem().equals(bookItem)).findFirst().orElseThrow();
-        FineTransaction fineTransaction = null;
+        FinePaymentTransaction finePaymentTransaction = null;
 
         if(bookCheckout.getOverdueBy() > 0) {
-            fineTransaction = fineService.processFine(bookCheckout);
+            finePaymentTransaction = fineService.processFine(bookCheckout);
         }
 
         bookCheckout.setCheckoutStatus(CheckoutStatus.RETURNED);
@@ -57,11 +57,6 @@ public class LibraryService {
 
         //Send notifications for the members reserved this book item
 
-        return Optional.ofNullable(fineTransaction);
-    }
-
-    public List<Book> search(String searchType, Object criteria) {
-        SearchContext searchContext = new SearchContext(searchType);
-        return searchContext.search(libraryRepository.getLibrary().getBooks(), criteria);
+        return Optional.ofNullable(finePaymentTransaction);
     }
 }
